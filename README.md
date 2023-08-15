@@ -60,7 +60,7 @@ If you would like to use your main PC to control your device connected via micro
 ```
 ssh wonoo@Jetson-TX2-01.local
 ```
-## Install Miscellaneous Dependencies
+## Install Basic Requirements
 1. Install cmake
 ```
 sudo apt install cmake
