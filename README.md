@@ -13,7 +13,7 @@ To get to using a fresh Jetson TX2 we must first flash the board with a Jetson L
 4. Choose JetPack 4.6.3 from the Target Operating System Drop-down
 5. Once you have selected the appropriate target Hardware and Target Operating system, please hit continue to proceed.
   ![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/63b7ac98-1d6e-4a8c-b87d-abf74734a71e)
-6. Ensure that "Jetson SDK Components" and "Download now. Install later" check boxes are unchecked, and that "Jetson OS" and "I accept the terms and conditions of the license              agreements" are checked.
+6. Ensure that "Jetson SDK Components" and "Download now. Install later" check boxes are unchecked, and that "Jetson OS" and "I accept the terms and conditions of the license agreements" are checked.
 7. You may change your Download folder or the Target HW image folder if you wish.
 8. Then proceed to the next step.
 ![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/ff28b168-7cc7-4b1e-a835-def0f640f128)
@@ -21,29 +21,29 @@ To get to using a fresh Jetson TX2 we must first flash the board with a Jetson L
 ![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/8b47d5ad-f2b0-43ba-b048-f0f06c52fbd1)
 10. Once the installation is complete close SDK Manager
 ![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/c363d269-ec4a-4598-911a-d57b6b9ea217)
-11. Goto your Target HW image folder that was designated in step 7 of these instructions and find     the `Linux_For_Tegra` folder.
-  ```
-  cd ~/nvidia/nvidia_sdk/JetPack_4.6.3_Linux_JETSON_TX2_TARGETS/Linux_For_Tegra
-  ```
+11. Goto your Target HW image folder that was designated in step 7 of these instructions and find the `Linux_For_Tegra` folder.
+```
+cd ~/nvidia/nvidia_sdk/JetPack_4.6.3_Linux_JETSON_TX2_TARGETS/Linux_For_Tegra
+```
 12. From the [ConnectTech Board Support Page](https://connecttech.com/resource-center/l4t-board-support-packages/) download the driver for your breakout board of Jetpack 4.6.3.
-  ```
-  wget https://connecttech.com/ftp/Drivers/CTI-L4T-TX2-32.7.3-V001.tgz
-  ```
+```
+wget https://connecttech.com/ftp/Drivers/CTI-L4T-TX2-32.7.3-V001.tgz
+```
 13. Install the CTI-L4T BSP with the following commands
-  ```
-  tar -zxf CTI-L4T-TX2-32.7.3-V001.tgz
-  cd CTI-L4T
-  sudo ./install.sh
-  cd .. # to return to the Linux_for_Tegra directory
-  ```
+```
+tar -zxf CTI-L4T-TX2-32.7.3-V001.tgz
+cd CTI-L4T
+sudo ./install.sh
+cd .. # to return to the Linux_for_Tegra directory
+```
 14. Change `VERSION_ID` ON `/etc/os-release` back to 20.04 if using Ubuntu 20.04
-    ```
-    sudo vim /etc/os-release
-    ```
+```
+sudo vim /etc/os-release
+```
 ## Flashing the Jetson
-0. Ensure that the DIP Switch S1 is set to "ATX Mode" to ensure that the device does not start-up     automatically upon connecting the power. 
-1. Connect your TX2 mounted on the breakout board to the computer via micro-USB and plug in the       power cable. 
-2. Put your device in forced recovery mode by holding these buttons in the following order           (RECOVERY->POWER->RESET) and releasing them in the following order (POWER->RESET->RECOVERY).
+0. Ensure that the DIP Switch S1 is set to "ATX Mode" to ensure that the device does not start-up automatically upon connecting the power. 
+1. Connect your TX2 mounted on the breakout board to the computer via micro-USB and plug in the power cable. 
+2. Put your device in forced recovery mode by holding these buttons in the following order (RECOVERY->POWER->RESET) and releasing them in the following order (POWER->RESET->RECOVERY).
 3. Flash your Jetson by running the following commands from `Linux_for_Tegra directory`.
    ```
    sudo ./cti-flash.sh
