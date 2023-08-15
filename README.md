@@ -1,8 +1,8 @@
 # Setup_TX2
 Step by Step instructions for setting up a Jetson TX2 for OCP packages utilizing Casadi and ACADOS
 
-## Flashing Jetson TX2
-### Preparing OS Image
+# Flashing Jetson TX2
+## Preparing OS Image
 To get to using a fresh Jetson TX2 we must first flash the board with a Jetson Linux. For this step you will need to install [NVIDIA SDK Manager](https://developer.nvidia.com/sdk-manager).
 1. If running Ubuntu 20.04 we need to trick the SDK Manager to think that we are on Ubuntu 18.04      by changing the `VERSION_ID` value with 18.04 on `/etc/os-release`.
   ```
@@ -36,7 +36,7 @@ To get to using a fresh Jetson TX2 we must first flash the board with a Jetson L
     ```
     sudo vim /etc/os-release
     ```
-### Flashing the Jetson
+## Flashing the Jetson
 0. Ensure that the DIP Switch S1 is set to "ATX Mode" to ensure that the device does not start-up     automatically upon connecting the power. 
 1. Connect your TX2 mounted on the breakout board to the computer via micro-USB and plug in the       power cable. 
 2. Put your device in forced recovery mode by holding these buttons in the following order           (RECOVERY->POWER->RESET) and releasing them in the following order (POWER->RESET->RECOVERY).
@@ -51,12 +51,12 @@ After flashing the Jetson, perform initial setup routine by connecting it to a s
 
 As a reference for the following steps, I named my board `Jetson-TX2-01` and my name on the OS to be `wonoo`
 
-## Installing Packages
+# Installing Packages
 If you would like to use your main PC to control your device connected via micro-USB, you can `ssh` into your device with the following commands. 
 ```
 ssh wonoo@Jetson-TX2-01.local
 ```
-### Install Miscellaneous Dependencies
+## Install Miscellaneous Dependencies
 1. Install cmake
 ```
 sudo apt install cmake
@@ -67,7 +67,14 @@ If the installed version is not the most up to date version follow the steps sho
 sudo apt update
 sudo apt install python3-pip
 ```
-### Install ROS
+3. Setup Python virtual environment for the packages. Here I've named my `virtualenv` to be `gp_mpc_venv` as the main purpose of my TX2 is for running GP_MPC & GP_MHE.
+```
+sudo pip3 install virtualenv
+cd <PATH_TO_VENV_DIRECTORY>
+virtualenv gp_mpc_venv --python=/usr/bin/python3.6
+source gp_mpc_venv/bin/activate
+```
+## Install ROS
 To install Robot Operatin System (ROS) Melodic on our device we use [installROS](https://github.com/jetsonhacks/installROS).
 ```
 cd ~ # Go to the directory where you would like to check out installROS to
@@ -76,7 +83,7 @@ cd installROS
 ./installROS.sh
 ```
 
-### Install catkin
+## Install catkin
 Install catkin_tools using apt-get with the following commands:
 ```
 sudo sh \
@@ -86,7 +93,7 @@ wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install python3-catkin-tools
 ```
-### Install ACADOS
+## Install ACADOS
 The following instructions were taken from the [Acados](https://docs.acados.org/installation/index.html) website to build and install `acados` with CMake.
 
 1. Go to the desired directory and clone acados and its submodules by running
@@ -128,7 +135,7 @@ cd ../examples/acados_python/getting_started
 python ./minimal_example_ocp.py
 ```
 
-### Install CasADi
+## Install CasADi
 The following steps are taken from instructions from [CasADi](https://github.com/casadi/casadi/wiki/InstallationLinux) and [Ipopt](https://coin-or.github.io/Ipopt/INSTALL.html#EXTERNALCODE) websites.
 
 To get started grab dependencies:
@@ -139,8 +146,12 @@ To complie the Python interface, you also need SWIG and a decent Python Installa
 ```
 sudo apt-get install swig ipython python-dev python-numpy python-scipy python-matplotlib --install-recommends
 ```
+If CasADi was installed while installing `acados` python interface, uninstall that version as it will have dependency issues:
+```
+pip uninstall casadi
+```
 
-#### Building IPOPT using coinbrew
+### Building IPOPT using coinbrew
 If you use the prebuilt CasADi binaries, IPOPT is included hwoever, here we will be building both CasADi and IPOPT from sources. More specifically we will be using [coinbrew](https://coin-or.github.io/coinbrew/) to automate the download of the source code which also deals with its dependencies: ASL, MUMPS and HSL. 
 
 > To really benefit from from IPOPT, you should also try to get additional linear solvers, which can be done post-installation, regardless of how IPOPT was installed. We strongly recommend you to get at least the HSL solver MA27 (which is free).
@@ -188,7 +199,7 @@ cd /usr/local/lib
 sudo ln -s ./libcoinhsl.so ./libhsl.so
 ```
 
-#### Building CasADi from sources
+### Building CasADi from sources
 0. Go to directory you would like to check out the `CasADi` to, here I installed in `$HOME` directory and check out `CasADi` from GitHub.
 ```
 cd ~
