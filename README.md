@@ -4,22 +4,24 @@ Step by Step instructions for setting up a Jetson TX2 for OCP packages utilizing
 # Flashing Jetson TX2
 ## Preparing OS Image
 To get to using a fresh Jetson TX2 we must first flash the board with a Jetson Linux. For this step you will need to install [NVIDIA SDK Manager](https://developer.nvidia.com/sdk-manager).
-1. If running Ubuntu 20.04 we need to trick the SDK Manager to think that we are on Ubuntu 18.04      by changing the `VERSION_ID` value with 18.04 on `/etc/os-release`.
+1. If running Ubuntu 20.04 we need to trick the SDK Manager to think that we are on Ubuntu 18.04 by changing the `VERSION_ID` value with 18.04 on `/etc/os-release`.
   ```
   sudo vim /etc/os-release
   ```
 2. Open NVIDIA SDK Manager.
-3. In the "Hardware Configuration" unselect Host Machine and select the Target Hardware to be         Jetson TX2 modules
+3. In the "Hardware Configuration" unselect Host Machine and select the Target Hardware to be Jetson TX2 modules
+4. Choose JetPack 4.6.3 from the Target Operating System Drop-down
+5. Once you have selected the appropriate target Hardware and Target Operating system, please hit continue to proceed.
   ![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/63b7ac98-1d6e-4a8c-b87d-abf74734a71e)
-
-5. Choose JetPack 4.6.3 from the Target Operating System Drop-down
-6. Once you have selected the appropriate target Hardware and Target Operating system, please hit     continue to proceed.
-7. Ensure that "Jetson SDK Components" and "Download now. Install later" check boxes are              unchecked, and that "Jetson OS" and "I accept the terms and conditions of the license              agreements" are checked.
-8. You may change your Download folder or the Target HW image folder if you wish.
-9. Then proceed to the next step.
-10. Downloading will begin and a prompt will pop up to flash your Jetson. On this prompt press skip.
-11. Once the installation is complete close SDK Manager
-12. Goto your Target HW image folder that was designated in step 7 of these instructions and find     the `Linux_For_Tegra` folder.
+6. Ensure that "Jetson SDK Components" and "Download now. Install later" check boxes are unchecked, and that "Jetson OS" and "I accept the terms and conditions of the license              agreements" are checked.
+7. You may change your Download folder or the Target HW image folder if you wish.
+8. Then proceed to the next step.
+![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/ff28b168-7cc7-4b1e-a835-def0f640f128)
+9. Downloading will begin and a prompt will pop up to flash your Jetson. On this prompt press skip.
+![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/8b47d5ad-f2b0-43ba-b048-f0f06c52fbd1)
+10. Once the installation is complete close SDK Manager
+![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/c363d269-ec4a-4598-911a-d57b6b9ea217)
+11. Goto your Target HW image folder that was designated in step 7 of these instructions and find     the `Linux_For_Tegra` folder.
   ```
   cd ~/nvidia/nvidia_sdk/JetPack_4.6.3_Linux_JETSON_TX2_TARGETS/Linux_For_Tegra
   ```
