@@ -10,14 +10,16 @@ To get to using a fresh Jetson TX2 we must first flash the board with a Jetson L
   ```
 2. Open NVIDIA SDK Manager.
 3. In the "Hardware Configuration" unselect Host Machine and select the Target Hardware to be         Jetson TX2 modules
-4. Choose JetPack 4.6.3 from the Target Operating System Drop-down
-5. Once you have selected the appropriate target Hardware and Target Operating system, please hit     continue to proceed.
-6. Ensure that "Jetson SDK Components" and "Download now. Install later" check boxes are              unchecked, and that "Jetson OS" and "I accept the terms and conditions of the license              agreements" are checked.
-7. You may change your Download folder or the Target HW image folder if you wish.
-8. Then proceed to the next step.
-9. Downloading will begin and a prompt will pop up to flash your Jetson. On this prompt press skip.
-10. Once the installation is complete close SDK Manager
-11. Goto your Target HW image folder that was designated in step 7 of these instructions and find     the `Linux_For_Tegra` folder.
+  ![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/63b7ac98-1d6e-4a8c-b87d-abf74734a71e)
+
+5. Choose JetPack 4.6.3 from the Target Operating System Drop-down
+6. Once you have selected the appropriate target Hardware and Target Operating system, please hit     continue to proceed.
+7. Ensure that "Jetson SDK Components" and "Download now. Install later" check boxes are              unchecked, and that "Jetson OS" and "I accept the terms and conditions of the license              agreements" are checked.
+8. You may change your Download folder or the Target HW image folder if you wish.
+9. Then proceed to the next step.
+10. Downloading will begin and a prompt will pop up to flash your Jetson. On this prompt press skip.
+11. Once the installation is complete close SDK Manager
+12. Goto your Target HW image folder that was designated in step 7 of these instructions and find     the `Linux_For_Tegra` folder.
   ```
   cd ~/nvidia/nvidia_sdk/JetPack_4.6.3_Linux_JETSON_TX2_TARGETS/Linux_For_Tegra
   ```
