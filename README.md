@@ -67,7 +67,15 @@ cd installROS
 ```
 
 ### Install catkin
-
+Install catkin_tools using apt-get with the following commands:
+```
+sudo sh \
+  -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" \
+    > /etc/apt/sources.list.d/ros-latest.list'
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install python3-catkin-tools
+```
 ### Install ACADOS
 The following instructions were taken from the [Acados](https://docs.acados.org/installation/index.html) website to build and install `acados` with CMake.
 
