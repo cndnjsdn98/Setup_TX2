@@ -4,7 +4,7 @@ Step by Step instructions for setting up a Jetson TX2 for OCP packages utilizing
 ## Flashing Jetson TX2
 ### Preparing OS Image
 To get to using a fresh Jetson TX2 we must first flash the board with a Jetson Linux. For this step you will need to install [NVIDIA SDK Manager](https://developer.nvidia.com/sdk-manager).
-1. If running Ubuntu 20.04 we need to trick the SDK Manager to think that we are on Ubuntu 18.04      by changing the VERSION_ID value with 18.04 on /etc/os-release.
+1. If running Ubuntu 20.04 we need to trick the SDK Manager to think that we are on Ubuntu 18.04      by changing the `VERSION_ID` value with 18.04 on `/etc/os-release`.
   ```
   sudo vim /etc/os-release
   ```
@@ -26,13 +26,16 @@ To get to using a fresh Jetson TX2 we must first flash the board with a Jetson L
   wget https://connecttech.com/ftp/Drivers/CTI-L4T-TX2-32.7.3-V001.tgz
   ```
 13. Install the CTI-L4T BSP with the following commands
+  ```
+  tar -zxf CTI-L4T-TX2-32.7.3-V001.tgz
+  cd CTI-L4T
+  sudo ./install.sh
+  cd .. # to return to the Linux_for_Tegra directory
+  ```
+14. Change `VERSION_ID` ON `/etc/os-release` back to 20.04 if using Ubuntu 20.04
     ```
-    tar -zxf CTI-L4T-TX2-32.7.3-V001.tgz
-    cd CTI-L4T
-    sudo ./install.sh
-    cd .. # to return to the Linux_for_Tegra directory
+    sudo vim /etc/os-release
     ```
-
 ### Flashing the Jetson
 0. Ensure that the DIP Switch S1 is set to "ATX Mode" to ensure that the device does not start-up     automatically upon connecting the power. 
 1. Connect your TX2 mounted on the breakout board to the computer via micro-USB and plug in the       power cable. 
@@ -48,13 +51,20 @@ After flashing the Jetson, perform initial setup routine by connecting it to a s
 
 As a reference for the following steps, I named my board `Jetson-TX2-01` and my name on the OS to be `wonoo`
 
-## Install Dependencies
+## Installing Packages
 If you would like to use your main PC to control your device connected via micro-USB, you can `ssh` into your device with the following commands. 
 ```
 ssh wonoo@Jetson-TX2-01.local
 ```
 
 ### Instal ROS
+To install Robot Operatin System (ROS) Melodic on our device we use [installROS](https://github.com/jetsonhacks/installROS).
+```
+cd ~ # Go to the directory where you would like to check out installROS to
+git clone https://github.com/jetsonhacks/installROS.git
+cd installROS
+./installROS.sh
+```
 
 ### Install catkin
 
@@ -72,12 +82,19 @@ To complie the Python interface, you also need SWIG and a decent Python Installa
 sudo apt-get install swig ipython python-dev python-numpy python-scipy python-matplotlib --install-recommends
 ```
 
-#### Install IPOPT
+#### Building IPOPT using coinbrew
 If you use the prebuilt CasADi binaries, IPOPT is included hwoever, here we will be building both CasADi and IPOPT from sources. More specifically we will be using [coinbrew](https://coin-or.github.io/coinbrew/) to automate the download of the source code which also deals with its dependencies: ASL, MUMPS and HSL. 
-##### Download CoinHSL (recommended)
-> To really benefit from from IPOPT, you should also try to get additional linear solvers, which can be done post-installation, regardless of how IPOPT was installed. We strongly recommend you to get at least the HSL solver MA27 (which is free). You will find instructions on that here. When filling out the forms for obtaining HSL, please mention that you plan to use the routines with Ipopt/CasADi. Unfortunately, we cannot guarantee the stability of using the newer linear solvers (MA57, MA77, MA86 and MA97 that are only free for academics) since HSL has not granted us any maintenance license.
 
+> To really benefit from from IPOPT, you should also try to get additional linear solvers, which can be done post-installation, regardless of how IPOPT was installed. We strongly recommend you to get at least the HSL solver MA27 (which is free).
 
+You can request a copy of these HSL solvers from [here](https://licences.stfc.ac.uk/product/coin-hsl)
+
+>  When filling out the forms for obtaining HSL, please mention that you plan to use the routines with Ipopt/CasADi. Unfortunately, we cannot guarantee the stability of using the newer linear solvers (MA57, MA77, MA86 and MA97 that are only free for academics) since HSL has not granted us any maintenance license.
+
+0. Install Dependencies.
+```
+sudo apt-get install libblas3 libblas-dev liblapack3 liblapack-dev gfortran
+```
 0. I like to contain all the packages in a single folder `nlp_solvers`:
 ```
 mkdir ~/nlp_solvers
@@ -92,7 +109,48 @@ chmod u+x ./coinbrew
 ```
 ./coinbrew fetch Ipopt --no-prompt
 ```
+3. Inside the `ThirdParty/HSL` directory that `coinbrew` created unpack the Coin-HSL source code.
+```
+cd ./ThirdParty/HSL
+gunzip coinhsl-x.y.z.tar.gz
+tar xf coinhsl-x.y.z.tar
+```
+4. Rename or set a symbolic link of the `coinhsl-x.y.z` directory to `coinhsl`
+```
+ln -s coinhsl-x.y.z coinhsl
+````
+5. Finish buidling Ipopt. The script will automatically install the package so no need for the installation step. 
+```
+cd ../../
+./coinbrew build Ipopt --prefix=/usr/local --test --no-prompt --verbosity=3
+```
+6. Create a symbolic link from `libcoinhsl.so` to `libhsl.so`:
+```
+cd /usr/local/lib
+sudo ln -s ./libcoinhsl.so ./libhsl.so
+```
 
-
-
-
+#### Building CasADi from sources
+0. Go to directory you would like to check out the `CasADi` to, here I installed in `$HOME` directory and check out `CasADi` from GitHub.
+```
+cd ~
+git clone https://github.com/casadi/casadi.git
+```
+1. Create a build directory for an out-of-source build:
+```
+cd casadi
+mkdir build
+cd build
+```
+2. Generate a makefile and build. The following options commands CasADi to be built using features and packages that we have installed
+```
+cmake -DWITH_PYTHON=ON -DWITH_IPOPT=ON -DWITH_LAPACK=ON  -DWITH_QPOASES=ON  ..
+make
+sudo make install
+```
+3. Run unittest to ensure that the installation was successful:
+```
+cd .. # Go back to the main casadi source directory
+cd test/python
+python alltests.py
+```
