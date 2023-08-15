@@ -79,12 +79,9 @@ sudo apt-get install python3-catkin-tools
 ### Install ACADOS
 The following instructions were taken from the [Acados](https://docs.acados.org/installation/index.html) website to build and install `acados` with CMake.
 
-0. Go to the directory you would like to clone acados and its submodules to
+1. Go to the desired directory and clone acados and its submodules by running
 ```
 cd ~/
-```
-1. Clone acados and its submodels by running:
-```
 git clone https://github.com/acados/acados.git
 cd acados
 git submodule update --recursive --init
