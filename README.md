@@ -57,7 +57,7 @@ If you would like to use your main PC to control your device connected via micro
 ssh wonoo@Jetson-TX2-01.local
 ```
 
-### Instal ROS
+### Install ROS
 To install Robot Operatin System (ROS) Melodic on our device we use [installROS](https://github.com/jetsonhacks/installROS).
 ```
 cd ~ # Go to the directory where you would like to check out installROS to
