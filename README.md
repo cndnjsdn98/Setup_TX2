@@ -56,7 +56,17 @@ If you would like to use your main PC to control your device connected via micro
 ```
 ssh wonoo@Jetson-TX2-01.local
 ```
-
+### Install Miscellaneous Dependencies
+1. Install cmake
+```
+sudo apt install cmake
+```
+If the installed version is not the most up to date version follow the steps shown [here](https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line)
+2. Install pip for Python3
+```
+sudo apt update
+sudo apt install python3-pip
+```
 ### Install ROS
 To install Robot Operatin System (ROS) Melodic on our device we use [installROS](https://github.com/jetsonhacks/installROS).
 ```
