@@ -45,9 +45,9 @@ sudo vim /etc/os-release
 1. Connect your TX2 mounted on the breakout board to the computer via micro-USB and plug in the power cable. 
 2. Put your device in forced recovery mode by holding these buttons in the following order (RECOVERY->POWER->RESET) and releasing them in the following order (POWER->RESET->RECOVERY).
 3. Flash your Jetson by running the following commands from `Linux_for_Tegra directory`.
-   ```
-   sudo ./cti-flash.sh
-   ```
+```
+sudo ./cti-flash.sh
+```
 4. Once the flashing has completed, the TX2 will reboot.
 
 ### Initial Setup Routine
