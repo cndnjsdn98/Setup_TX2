@@ -69,6 +69,49 @@ cd installROS
 ### Install catkin
 
 ### Install ACADOS
+The following instructions were taken from the [Acados](https://docs.acados.org/installation/index.html) website to build and install `acados` with CMake.
+
+0. Go to the directory you would like to clone acados and its submodules to
+```
+cd ~/
+```
+1. Clone acados and its submodels by running:
+```
+git clone https://github.com/acados/acados.git
+cd acados
+git submodule update --recursive --init
+```
+2. Install `acados` with the following commands:
+```
+mkdir -p build
+cd build
+cmake -DACADOS_WITH_QPOASES=ON -DACADOS_WITH_OSQP=ON ..
+# add more optional arguments e.g. -DACADOS_WITH_OSQP=OFF/ON -DACADOS_INSTALL_DIR=<path_to_acados_installation_folder> above
+make install -j4
+```
+4. Install Python Interface
+```
+cd ../
+cd ./interfaces/acados_template
+pip install -e ./
+```
+5. Add the following texts to `.bashrc` to add the path to the compiled shared libraries to `LD_LIBRARY_PATH`.
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"<acados_root>/lib"
+export ACADOS_SOURCE_DIR="<acados_root>"
+```
+6. To be able to successfully render C code templates download `t_render` binaries for Ubuntu from [here](https://github.com/acados/tera_renderer/releases/) and place them in `<acados_root>/bin` and strip the version and platform from the binary name.
+```
+cd ~/acados/bin
+wget https://github.com/acados/tera_renderer/releases/download/v0.0.34/t_renderer-v0.0.34-linux
+mv ./t_render-v0.0.34 ./t_render
+chmod u+x ./t_render
+```
+7. Run a Python example to check that everything works:
+```
+cd ../examples/acados_python/getting_started
+python ./minimal_example_ocp.py
+```
 
 ### Install CasADi
 The following steps are taken from instructions from [CasADi](https://github.com/casadi/casadi/wiki/InstallationLinux) and [Ipopt](https://coin-or.github.io/Ipopt/INSTALL.html#EXTERNALCODE) websites.
