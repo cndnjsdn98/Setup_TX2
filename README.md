@@ -227,3 +227,50 @@ cd .. # Go back to the main casadi source directory
 cd test/python
 python alltests.py
 ```
+
+## Install Other Jetson SDK Components
+To install other Jetson SDK Components such as CUDA 10.2 come back to the main PC. 
+0. Again, if you are not using Ubuntu 18.04, change the `VERSION_ID` value with 18.04 on `/etc/os-release`.
+  ```
+  sudo vim /etc/os-release
+  ```
+1. Open NVIDIA SDK Manager.
+2. Again, deselect Host Machine, select Jetson TX2 as your Target HArdware, and the appropriate Jetpack version (which in this case is JEtpack 4.6.3) then hit continue.
+![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/377198e4-2200-4e04-be1a-0d2c117a0dad)
+3. From here, make sure to unselect Jetson OS and only select Jetson SDK Components. Then check "I accept the terms and conditions of the license agreements" checkbox and click Continue.
+![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/2fd75074-2383-4fad-9f35-fb282bd149d0)
+4. Downloading will begin and a prompt will pop up to install the SDK Components. On this prompt, type in your username and password to install the SDK Components on your Jetson TX2.
+5. Once the installation is complete, close SDK Manager.
+6. If you changed the `VERSION_ID` value on `/etc/os-release/` then change it back to the correct value.
+```
+sudo vim /etc/os-release
+```
+
+## Install ZED SDK
+The following instructions to install ZED SDK were derived from the [ZED](https://www.stereolabs.com/docs/installation/jetson/) website.
+0. Install `zstd`
+```
+sudo apt install zstd
+```
+1. Goto the directory you would like to download ZED SDK files to. Here I will be downloading it in `~/zed`.
+```
+mkdir ~/zed
+cd ~/zed
+```
+2. Download the ZED SDK for Jetpack from [here](https://www.stereolabs.com/developers/release/). Ensure that you select the correct version for the Jetpack version that is installed on your Jetson TX2.
+```
+wget https://download.stereolabs.com/zedsdk/4.0/l4t32.7/jetsons
+```
+3. Add execution permission to the installer using the chmod +x command.
+```
+chmod +x ./jetsons
+```
+4. Run the ZED SDK Installer.
+```
+./jetsons
+```
+5. At the beginning of the installation, the Software License will be displayed, hit q after reading it.
+6. During the installation, you might have to answer some questions on the installation of dependencies, tools and samples. Type y for yes and n for no and hit Enter. Hit Enter to pick the default option.
+7. Please note that installing the 'libv4l-dev' apt package at any point on jetson will break the hardware encoding/decoding support
+
+
