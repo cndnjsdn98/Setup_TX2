@@ -240,8 +240,9 @@ To install other Jetson SDK Components such as CUDA 10.2 come back to the main P
 3. From here, make sure to unselect Jetson OS and only select Jetson SDK Components. Then check "I accept the terms and conditions of the license agreements" checkbox and click Continue.
 ![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/2fd75074-2383-4fad-9f35-fb282bd149d0)
 4. Downloading will begin and a prompt will pop up to install the SDK Components. On this prompt, type in your username and password to install the SDK Components on your Jetson TX2.
-5. Once the installation is complete, close SDK Manager.
-6. If you changed the `VERSION_ID` value on `/etc/os-release/` then change it back to the correct value.
+![image](https://github.com/cndnjsdn98/Setup_TX2/assets/50539326/d72933f3-f963-4458-84c9-6343628433f0)
+6. Once the installation is complete, close SDK Manager.
+7. If you changed the `VERSION_ID` value on `/etc/os-release/` then change it back to the correct value.
 ```
 sudo vim /etc/os-release
 ```
