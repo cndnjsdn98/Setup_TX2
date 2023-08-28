@@ -159,16 +159,24 @@ pip install -e ./
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"<acados_root>/lib"
 export ACADOS_SOURCE_DIR="<acados_root>"
 ```
-6. To be able to successfully render C code templates download `t_renderer` binaries for Ubuntu from [here](https://github.com/acados/tera_renderer/releases/) and place them in `<acados_root>/bin` and strip the version and platform from the binary name.
+6. To be able to successfully render C code templates build `t_renderer` binaries for Ubuntu from [here](https://github.com/acados/tera_renderer) and place them in `<acados_root>/bin`.
+7. To build `t_renderer` install `cargo`.
 ```
-cd ~/acados/bin
-wget https://github.com/acados/tera_renderer/releases/download/v0.0.34/t_renderer-v0.0.34-linux
-mv ./t_renderer-v0.0.34-linux ./t_renderer
-chmod u+x ./t_renderer
+sudo apt-get install cargo
+```
+8. Clone `t_renderer` git and build tera renderer.
+```
+cd ~/
+git clone https://github.com/acados/tera_renderer.git
+cargo build --verbose --release
+```
+9. Copy the built `t_renderer` binary to `acados` directory
+```
+cp ~/tera_renderer/target/release/t_renderer ~/acados/bin/
 ```
 7. Run a Python example to check that everything works:
 ```
-cd ../examples/acados_python/getting_started
+cd ~/acados/examples/acados_python/getting_started
 python ./minimal_example_ocp.py
 ```
 Note that this may return `ModuleNotFoundError: No module named '_casadi'` as we have yet to install `CasADi` properly yet.
