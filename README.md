@@ -62,6 +62,7 @@ ssh wonoo@Jetson-TX2-01.local
 ```
 ## Install Cmake
 Simply running `sudo apt-get install cmake` will not install the latest version of cmake here. The following instructions were taken from  [here](https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line) to install the most recent version of cmake.
+
 0. Prepare for installing cmake
 ```
 sudo apt update && \
