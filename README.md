@@ -66,6 +66,7 @@ ssh wonoo@Jetson-TX2-01.local
 sudo apt install cmake
 ```
 If the installed version is not the most up to date version follow the steps shown [here](https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line)
+
 2. Install pip for Python3
 ```
 sudo apt update
