@@ -174,7 +174,7 @@ cargo build --verbose --release
 ```
 cp ~/tera_renderer/target/release/t_renderer ~/acados/bin/
 ```
-7. Run a Python example to check that everything works:
+10. Run a Python example to check that everything works:
 ```
 cd ~/acados/examples/acados_python/getting_started
 python ./minimal_example_ocp.py
