@@ -159,12 +159,12 @@ pip install -e ./
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"<acados_root>/lib"
 export ACADOS_SOURCE_DIR="<acados_root>"
 ```
-6. To be able to successfully render C code templates download `t_render` binaries for Ubuntu from [here](https://github.com/acados/tera_renderer/releases/) and place them in `<acados_root>/bin` and strip the version and platform from the binary name.
+6. To be able to successfully render C code templates download `t_renderer` binaries for Ubuntu from [here](https://github.com/acados/tera_renderer/releases/) and place them in `<acados_root>/bin` and strip the version and platform from the binary name.
 ```
 cd ~/acados/bin
 wget https://github.com/acados/tera_renderer/releases/download/v0.0.34/t_renderer-v0.0.34-linux
-mv ./t_render-v0.0.34 ./t_render
-chmod u+x ./t_render
+mv ./t_renderer-v0.0.34-linux ./t_renderer
+chmod u+x ./t_renderer
 ```
 7. Run a Python example to check that everything works:
 ```
