@@ -1,4 +1,3 @@
--e git+https://github.com/acados/acados.git@61d1b7daa461893840fa41517e04178068bbfd12#egg=acados_template&subdirectory=interfaces/acados_template
 actionlib==1.12.1
 bondpy==1.8.5
 catkin==0.7.29
