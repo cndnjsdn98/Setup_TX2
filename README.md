@@ -60,19 +60,50 @@ If you would like to use your main PC to control your device connected via micro
 ```
 ssh wonoo@Jetson-TX2-01.local
 ```
-## Install Basic Requirements
-1. Install cmake
+## Install Cmake
+Simply running `sudo apt-get install cmake` will not install the latest version of cmake here. The following instructions were taken from  [here](https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line) to install the most recent version of cmake.
+0. Prepare for installing cmake
 ```
+sudo apt update && \
+sudo apt install -y software-properties-common lsb-release && \
+sudo apt clean all
+```
+1. Obtain a copy of kitware's signing key.
+```
+wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+```
+2. Add kitware's repository to your sources list for Ubuntu Bionic Beaver (18.04).
+```
+sudo apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
+```
+3. As an optional step, is recommended that we also install the kitware-archive-keyring package to ensure that Kitware's keyring stays up to date as they rotate their keys. 
+```
+sudo apt update
+sudo apt install kitware-archive-keyring
+sudo rm /etc/apt/trusted.gpg.d/kitware.gpg
+```
+If running `sudo apt update` gets the following error:
+```
+Err:7 https://apt.kitware.com/ubuntu bionic InRelease
+The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 6AF7F09730B3F0A4
+Fetched 11.0 kB in 1s (7552 B/s)
+```
+Then copy the public key `6AF7F09730B3F0A4` and run this command:
+```
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6AF7F09730B3F0A4
+```
+4. Finally we can update and install `cmake`.
+```
+sudo apt update
 sudo apt install cmake
 ```
-If the installed version is not the most up to date version follow the steps shown [here](https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line)
-
-2. Install pip for Python3
+## Setup Python Virtual Environment
+1. Install pip for Python3
 ```
 sudo apt update
 sudo apt install python3-pip
 ```
-3. Setup Python virtual environment for the packages. Here I've named my `virtualenv` to be `gp_mpc_venv` as the main purpose of my TX2 is for running GP_MPC & GP_MHE.
+2. Setup Python virtual environment for the packages. Here I've named my `virtualenv` to be `gp_mpc_venv` as the main purpose of my TX2 is for running GP_MPC & GP_MHE.
 ```
 sudo pip3 install virtualenv
 cd <PATH_TO_VENV_DIRECTORY>
