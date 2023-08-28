@@ -285,6 +285,7 @@ sudo vim /etc/os-release
 
 ## Install ZED SDK
 The following instructions to install ZED SDK were derived from the [ZED](https://www.stereolabs.com/docs/installation/jetson/) website.
+
 0. Install `zstd`
 ```
 sudo apt install zstd
