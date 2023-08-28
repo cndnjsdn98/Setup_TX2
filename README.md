@@ -171,6 +171,8 @@ chmod u+x ./t_renderer
 cd ../examples/acados_python/getting_started
 python ./minimal_example_ocp.py
 ```
+Note that this may return `ModuleNotFoundError: No module named '_casadi'` as we have yet to install `CasADi` properly yet.
+
 
 ## Install CasADi
 The following steps are taken from instructions from [CasADi](https://github.com/casadi/casadi/wiki/InstallationLinux) and [Ipopt](https://coin-or.github.io/Ipopt/INSTALL.html#EXTERNALCODE) websites.
