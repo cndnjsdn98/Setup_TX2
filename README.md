@@ -196,15 +196,15 @@ The following steps are taken from instructions from [CasADi](https://github.com
 
 To get started grab dependencies:
 ```
-sudo apt-get install gcc g++ gfortran git cmake liblapack-dev pkg-config --install-recommends
+sudo apt-get install -y gcc g++ gfortran git cmake liblapack-dev pkg-config --install-recommends
 ```
 To complie the Python interface, you also need SWIG and a decent Python Installation:
 ```
-sudo apt-get install swig ipython python-dev python-numpy python-scipy python-matplotlib --install-recommends
+sudo apt-get install -y swig ipython python-dev python-numpy python-scipy python-matplotlib --install-recommends
 ```
 If CasADi was installed while installing `acados` python interface, uninstall that version as it will have dependency issues:
 ```
-pip uninstall casadi
+pip uninstall -y casadi
 ```
 
 ### Building IPOPT using coinbrew
