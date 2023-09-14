@@ -79,8 +79,8 @@ sudo apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) 
 ```
 3. As an optional step, is recommended that we also install the kitware-archive-keyring package to ensure that Kitware's keyring stays up to date as they rotate their keys. 
 ```
-sudo apt update
-sudo apt install kitware-archive-keyring
+sudo apt update && \
+sudo apt install kitware-archive-keyring && \
 sudo rm /etc/apt/trusted.gpg.d/kitware.gpg
 ```
 If running `sudo apt update` gets the following error:
