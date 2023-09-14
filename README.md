@@ -149,9 +149,17 @@ cmake -DACADOS_WITH_QPOASES=ON -DACADOS_WITH_OSQP=ON ..
 make install -j4
 ```
 4. Install Python Interface
+Go in to the directory of the `acados_template` to install python interface.
 ```
 cd ../
 cd ./interfaces/acados_template
+```
+Sepcify the Numpy version to be `1.19.4` to ensure it does not run in to issues while proceeding with the rest of the installations. In the `setup.py` file change the line 56 from `'numpy',` to `'numpy==1.19.4',`.
+```
+sudo vim ./setup.py
+```
+Install the Python interface, the option `-e` sets the installation file to be edittable later on such that you can upgrade the installation if there is updates to the `acados` pakcage.
+```
 pip install -e ./
 ```
 5. Add the following texts to `.bashrc` to add the path to the compiled shared libraries to `LD_LIBRARY_PATH`.
