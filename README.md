@@ -167,15 +167,16 @@ pip install -e ./
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"~/acados/lib"
 export ACADOS_SOURCE_DIR="~/acados"
 ```
-6. To be able to successfully render C code templates build `t_renderer` binaries for Ubuntu from [here](https://github.com/acados/tera_renderer) and place them in `<acados_root>/bin`.
-7. To build `t_renderer` install `cargo`.
+6. To be able to successfully render C code templates download `t_renderer` binaries for Ubuntu from [here](https://github.com/acados/tera_renderer) and place them in `<acados_root>/bin`. However, sometimes this can cause issues. To build `t_renderer` binary yourself, follow the following instructions 7 to 9, else skip to 10 after downloading the `t_renderer` binaries. 
+7. install `cargo`.
 ```
-sudo apt-get install cargo
+sudo apt-get -y install cargo
 ```
 8. Clone `t_renderer` git and build tera renderer.
 ```
 cd ~/
 git clone https://github.com/acados/tera_renderer.git
+cd ~/tera_renderer
 cargo build --verbose --release
 ```
 9. Copy the built `t_renderer` binary to `acados` directory
