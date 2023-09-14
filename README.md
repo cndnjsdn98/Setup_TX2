@@ -156,8 +156,8 @@ pip install -e ./
 ```
 5. Add the following texts to `.bashrc` to add the path to the compiled shared libraries to `LD_LIBRARY_PATH`.
 ```
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"<acados_root>/lib"
-export ACADOS_SOURCE_DIR="<acados_root>"
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"~/acados/lib"
+export ACADOS_SOURCE_DIR="~/acados"
 ```
 6. To be able to successfully render C code templates build `t_renderer` binaries for Ubuntu from [here](https://github.com/acados/tera_renderer) and place them in `<acados_root>/bin`.
 7. To build `t_renderer` install `cargo`.
