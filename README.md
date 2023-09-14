@@ -96,13 +96,13 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6AF7F09730B3F0A4
 4. Finally we can update and install `cmake`.
 ```
 sudo apt update
-sudo apt install cmake
+sudo apt install -y cmake
 ```
 ## Setup Python Virtual Environment
 1. Install pip for Python3
 ```
 sudo apt update
-sudo apt install python3-pip
+sudo apt install -y python3-pip
 ```
 2. Setup Python virtual environment for the packages. Here I've named my `virtualenv` to be `gp_mpc_venv` as the main purpose of my TX2 is for running GP_MPC & GP_MHE.
 ```
@@ -128,7 +128,7 @@ sudo sh \
     > /etc/apt/sources.list.d/ros-latest.list'
 wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
 sudo apt-get update
-sudo apt-get install python3-catkin-tools
+sudo apt-get install -y python3-catkin-tools
 ```
 ## Install ACADOS
 The following instructions were taken from the [Acados](https://docs.acados.org/installation/index.html) website to build and install `acados` with CMake.
