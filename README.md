@@ -120,7 +120,7 @@ cd installROS
 ./installROS.sh
 ```
 To be ensure that ROS can communicate between your master Node (my main laptop for my case) edit your `ROS_MASTER_URI` and `ROS_IP` in `~/.bashrc` file. In my case my laptop name, where my Master ROSCORE, is `wonoo-Precision-5570` and the IP of my TX2 is `10.204.228.191` which can be found by running `hostname -I`:
-``
+```
 export ROS_MASTER_URI=http://wonoo-Precision-5570.local:11311
 export ROS_IP=10.204.228.191`
 ```
