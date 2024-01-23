@@ -89,7 +89,7 @@ Err:7 https://apt.kitware.com/ubuntu bionic InRelease
 The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 6AF7F09730B3F0A4
 Fetched 11.0 kB in 1s (7552 B/s)
 ```
-Then copy the public key `6AF7F09730B3F0A4` and run this command:
+Then copy the public key from the errror message above (which in my case was `6AF7F09730B3F0A4`) and run this command:
 ```
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6AF7F09730B3F0A4
 ```
