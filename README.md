@@ -104,12 +104,12 @@ sudo apt install -y cmake
 sudo apt update
 sudo apt install -y python3-pip
 ```
-2. Setup Python virtual environment for the packages. Here I've named my `virtualenv` to be `gp_mpc_venv` as the main purpose of my TX2 is for running GP_MPC & GP_MHE.
+2. Setup Python virtual environment for the packages. Here I've named my `virtualenv` to be `gp_rhce_venv` as the main purpose of my TX2 is for running GP_RHCE.
 ```
 sudo pip3 install virtualenv
 cd <PATH_TO_VENV_DIRECTORY>
-virtualenv gp_mpc_venv --python=/usr/bin/python3.6
-source gp_mpc_venv/bin/activate
+virtualenv gp_rhce_venv --python=/usr/bin/python3.6
+source gp_rhce_venv/bin/activate
 ```
 ## Install ROS
 To install Robot Operatin System (ROS) Melodic on our device we use [installROS](https://github.com/jetsonhacks/installROS).
