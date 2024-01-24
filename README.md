@@ -62,12 +62,13 @@ ssh wonoo@Jetson-TX2-01.local
 ```
 ## Install Cmake
 Simply running `sudo apt-get install cmake` will not install the latest version of cmake here. The following instructions were taken from  [here](https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line) to install the most recent version of cmake.
-
+### Option A:  Using APT Repositories (Note: hasn't worked as of January 2024 for me)
 0. Prepare for installing cmake
 ```
 sudo apt update && \
 sudo apt install -y software-properties-common lsb-release && \
-sudo apt clean all
+sudo apt clean all \
+sudo apt remove --purge --auto-remove cmake
 ```
 1. Obtain a copy of kitware's signing key.
 ```
@@ -98,6 +99,36 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6AF7F09730B3F0A4
 sudo apt update
 sudo apt install -y cmake
 ```
+
+### Option B: Building and Installing (Recommended for developers)
+0. Install GCC tools:
+```
+sudo apt update
+sudo apt install -y build-essential libtool autoconf unzip wget libssl-dev
+```
+1. Uninstall default version of cmake
+```
+sudo apt remove --purge --auto-remove cmake
+```
+2. Goto [official CMake webpage](https://cmake.org/download) and copy the download link to the the source distribution of the latest version (or the specific version you'd like) and download and unzip in your TX2 using `wget`:
+
+```
+wget https://github.com/Kitware/CMake/releases/download/v3.27.9/cmake-3.27.9.tar.gz
+tar -xzvf cmake-3.27.9.tar.gz
+```
+3. Install the extracted source by running:
+```
+cd cmake-3.27.9/
+./bootstrap
+make -j$(nproc)
+sudo make install
+```
+
+4. Test your new cmake version:
+```
+cmake --version
+```
+
 ## Setup Python Virtual Environment
 1. Install pip for Python3
 ```
