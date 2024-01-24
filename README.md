@@ -71,7 +71,7 @@ sudo apt clean all
 ```
 1. Obtain a copy of kitware's signing key.
 ```
-wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
+wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /usr/share/keyrings/kitware-archive-keyring.gpg >/dev/null
 ```
 2. Add kitware's repository to your sources list for Ubuntu Bionic Beaver (18.04).
 ```
