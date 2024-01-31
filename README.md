@@ -315,6 +315,14 @@ cd .. # Go back to the main casadi source directory
 cd test/python
 python alltests.py
 ```
+## Gain access to the serial console device
+To have permission to utilize the UART devices on your carrier board, add your Linux user to the `dialout` group by running the following:
+```
+sudo usermod -a -G dialout $USER
+```
+
+Reboot the device for the change to take place.
+
 
 ## Install Other Jetson SDK Components
 To install other Jetson SDK Components such as CUDA 10.2 come back to the main PC. 
