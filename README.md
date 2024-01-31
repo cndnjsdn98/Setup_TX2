@@ -315,7 +315,11 @@ cd .. # Go back to the main casadi source directory
 cd test/python
 python alltests.py
 ```
-Alternative and less intensive test to ensure the installation was successful is by running Step 10 from [Install Acados](#Install-ACADOS) to run a minimal example provided by Acados.
+Alternative and less intensive test to ensure the installation was successful is by running Step 10 from [Install Acados](#Install-ACADOS) to run a minimal example provided by Acados:
+```
+cd ~/acados/examples/acados_python/getting_started
+python ./minimal_example_ocp.py
+```
 
 ## Gain access to the serial console device
 To have permission to utilize the UART devices on your carrier board, add your Linux user to the `dialout` group by running the following:
