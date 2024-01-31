@@ -319,6 +319,8 @@ python alltests.py
 To have permission to utilize the UART devices on your carrier board, add your Linux user to the `dialout` group by running the following:
 ```
 sudo usermod -a -G dialout $USER
+sudo usermod -a -G tty $USER
+sudo chown $USER: /dev/ttyS0
 ```
 
 Reboot the device for the change to take place.
