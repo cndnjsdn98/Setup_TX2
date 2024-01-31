@@ -219,7 +219,7 @@ cargo build --verbose --release
 ```
 cp ~/tera_renderer/target/release/t_renderer ~/acados/bin/
 ```
-[10. Run a Python example to check that everything works:](#Acados-example)
+10. Run a Python example to check that everything works:
 ```
 cd ~/acados/examples/acados_python/getting_started
 python ./minimal_example_ocp.py
@@ -315,7 +315,7 @@ cd .. # Go back to the main casadi source directory
 cd test/python
 python alltests.py
 ```
-Alternative and less intensive test to ensure the installation was successful is by running [Acados Minimal Example](#Acados-example).
+Alternative and less intensive test to ensure the installation was successful is by running Step 10 from [## Install Acados](## Install ACADOS) to run a minimal example provided by Acados.
 
 ## Gain access to the serial console device
 To have permission to utilize the UART devices on your carrier board, add your Linux user to the `dialout` group by running the following:
