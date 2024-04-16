@@ -374,6 +374,19 @@ To install other Jetson SDK Components such as CUDA 10.2 come back to the main P
 sudo vim /etc/os-release
 ```
 
+## Initialize your GitHub SSH Key
+0. Firstly generate new SSH Key to add to your GitHub account.
+Generate your SSH key by copying the following text in to the terminal and follwing the prompts, replacing the email used in the example with your GitHub email address. For more detailed instructions see [here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+```
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+Copy the contents of `id_ed25519.pub` file displayed in the terminal to your clipboard with the following command.
+```
+cat ~/.ssh/id_ed25519.pub
+```
+Paste your public key (the copied content) in to your account. For more detailed instructions see [here](https://docs.github.com/en/enterprise-cloud@latest/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+
 ## Install ZED SDK
 The following instructions to install ZED SDK were derived from the [ZED](https://www.stereolabs.com/docs/installation/jetson/) website.
 
