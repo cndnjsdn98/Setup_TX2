@@ -194,6 +194,10 @@ Sepcify the Numpy version to be `1.19.4` to ensure it does not run in to issues 
 ```
 sudo vim ./setup.py
 ```
+Downgrade the setuptools_scm package to a version that is compatible with Python 3.6. 
+```
+pip install 'setuptools_scm<8'
+```
 Install the Python interface, the option `-e` sets the installation file to be edittable later on such that you can upgrade the installation if there is updates to the `acados` pakcage.
 ```
 pip install -e ./
