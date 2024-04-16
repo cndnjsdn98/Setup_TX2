@@ -100,7 +100,7 @@ sudo apt update
 sudo apt install -y cmake
 ```
 
-### Option B: Building and Installing (Recommended for developers)
+### Option B: Building and Installing from Source (Recommended for developers)
 0. Install GCC tools:
 ```
 sudo apt update
