@@ -15,33 +15,34 @@ rm ./install_geographiclib_datasets.sh
 1. Required dependencies
 ```
 sudo apt-get update
-sudo apt-get install python3-vcstool \
-                     ros-melodic-rqt-gui \
-                     ros-melodic-rqt-gui-py \
-                     ros-melodic-octomap-msgs \
-                     ros-melodic-gazebo-plugins
+sudo apt-get install libgoogle-glog-dev \
+                     protobuf-compiler \
+                     ros-$ROS_DISTRO-octomap-msgs \
+                     ros-$ROS_DISTRO-octomap-ros \
+                     ros-$ROS_DISTRO-joy
+```
+```
+sudo apt-get install libopencv-dev \
+                     ros-${ROS_DISTRO}-mavros \
+                     ros-${ROS_DISTRO}-mavros-extra \
+                     ros-${ROS_DISTRO}-mavros \
+                     ros-${ROS_DISTRO}-mavros-extras \
+                     ros-${ROS_DISTRO}-mavros-msgs
 ```
 1. Install required packages 
 2. Create Catkin Workspace.
 ```
 cd ~
-mkdir -p ./catkin_ws/src
+mkdir -p ~/catkin_ws/src
 cd ./catkin_ws/src
-git clone git@github.com:mavlink/mavros.git
-git clone git@github.com:mavlink/mavlink.git --recursive
-
-```
-```
-git clone git@github.com:PX4/PX4-Autopilot.git
-cd PX4-Autopilot
-git checkout stable
-```
-```
-git clone git@github.com:uzh-rpg/rpg_quadrotor_control.git
 git clone https://github.com/catkin/catkin_simple
 git clone https://github.com/ethz-asl/mav_comm.git
 git clone git@github.com:uzh-rpg/agilicious_internal.git
 ```
 
 ```
-cd 
+cd ~/catkin_ws
+catkin build
+```
+```
+
