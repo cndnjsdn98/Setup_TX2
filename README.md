@@ -135,7 +135,12 @@ cmake --version
 sudo apt update
 sudo apt install -y python3-pip
 ```
-2. Setup Python virtual environment for the packages. 
+2. Install matplotlib first as it always throws error when installing in virtual environment
+```
+sudo apt install python3-matplotlib
+```
+
+3. Setup Python virtual environment for the packages. 
 ```
 sudo pip3 install virtualenv
 cd <PATH_TO_VENV_DIRECTORY>
