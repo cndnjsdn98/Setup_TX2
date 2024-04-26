@@ -213,10 +213,18 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"$HOME/acados/lib"
 export ACADOS_SOURCE_DIR="$HOME/acados"
 ```
 6. To be able to successfully render C code templates download `t_renderer` binaries for Ubuntu from [here](https://github.com/acados/tera_renderer) and place them in `<acados_root>/bin`. However, sometimes this can cause issues. To build `t_renderer` binary yourself, follow the following instructions 7 to 9, else skip to 10 after downloading the `t_renderer` binaries. 
-7. install `cargo` and upgrade `rustc`
+7. install `cargo`
 ```
 sudo apt-get -y install cargo
 ```
+8. Clone `t_renderer` git and build tera renderer.
+```
+cd ~/
+git clone https://github.com/acados/tera_renderer.git
+cd ~/tera_renderer
+cargo build --verbose --release
+```
+If the above throws an error regarding incorrect version of `rust` then execute the following to update the rustc version. If there were no errors proceed to the next step:
 Uninstall the initial `rustc` installation and install `rustup`
 ```
 sudo apt autoremove rustc -y
@@ -232,16 +240,9 @@ source ~/.bashrc
 ```
 Install the needed version of `rust`
 ```
-rustup default 1.7.0
+rustup default <required version of rust>
 ```
 
-8. Clone `t_renderer` git and build tera renderer.
-```
-cd ~/
-git clone https://github.com/acados/tera_renderer.git
-cd ~/tera_renderer
-cargo build --verbose --release
-```
 9. Copy the built `t_renderer` binary to `acados` directory
 ```
 cp ~/tera_renderer/target/release/t_renderer ~/acados/bin/
