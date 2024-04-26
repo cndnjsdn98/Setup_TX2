@@ -137,10 +137,10 @@ sudo apt install -y python3-pip
 ```
 2. Setup Python virtual environment for the packages. 
 ```
-sudo apt-get install python3-venv
+sudo pip3 install virtualenv
 cd <PATH_TO_VENV_DIRECTORY>
-python3 -m venv env
-source <PATH_TO_VENV_DIRECTORY>/env/bin/activate
+virtualenv env --python=/usr/bin/python3.6
+source <PATH_TO_VENV_DIRECTORY>/bin/activate
 ```
 ## Install ROS
 To install Robot Operatin System (ROS) Melodic on our device we use [installROS](https://github.com/jetsonhacks/installROS).
