@@ -177,7 +177,7 @@ The following instructions were taken from the [Acados](https://docs.acados.org/
 1. Go to the desired directory and clone acados and its submodules by running
 ```
 cd ~/
-git clone https://github.com/acados/acados.git
+git clone --depth 1 --branch v0.3.0 https://github.com/acados/acados.git
 cd acados
 git submodule update --recursive --init
 ```
