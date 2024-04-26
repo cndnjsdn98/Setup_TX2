@@ -219,7 +219,7 @@ sudo apt-get -y install cargo
 ```
 Uninstall the initial `rustc` installation and install `rustup`
 ```
-sudo apt autoremove rustc
+sudo apt autoremove rustc -y
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 Add `~/.cargo/bin` to the `$PATH` by adding the following line to `.bashrc`
