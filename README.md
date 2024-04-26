@@ -144,7 +144,7 @@ sudo apt install python3-matplotlib
 ```
 sudo pip3 install virtualenv
 cd <PATH_TO_VENV_DIRECTORY>
-virtualenv env --python=/usr/bin/python3.6
+virtualenv env --system-site-packages
 source <PATH_TO_VENV_DIRECTORY>/bin/activate
 ```
 ## Install ROS
