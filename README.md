@@ -197,7 +197,7 @@ cd ./interfaces/acados_template
 ```
 Sepcify the Numpy version to be `1.19.4` to ensure it does not run in to issues while proceeding with the rest of the installations. In the `setup.py` file change the line 56 from `'numpy',` to `'numpy==1.19.4',`.
 ```
-sudo vim ./setup.py
+vim ./setup.py
 ```
 Downgrade the setuptools_scm package to a version that is compatible with Python 3.6. 
 ```
