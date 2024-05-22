@@ -21,7 +21,8 @@ sudo apt-get install -y libgoogle-glog-dev \
                         ros-$ROS_DISTRO-octomap-ros \
                         ros-$ROS_DISTRO-joy \
                         ros-${ROS_DISTRO}-mavros-msgs \
-                        ros-${ROS_DISTRO}-rqt-gui
+                        ros-${ROS_DISTRO}-rqt-gui \
+                        ros-${ROS_DISTRO}-rqt-gui-py
 ```
 1. Install required packages 
 2. Create Catkin Workspace.
