@@ -4,7 +4,7 @@ Step by Step instructions for setting up a ROS and Catkin_ws environment on Jets
 ## Install required Packages
 Following instructions are for installing dependencies such as MAVROS and MAVLINK for communicating with the FCU.
 ```
-sudo apt-get install ros-melodic-mavros ros-melodic-mavros-extras
+sudo apt-get install ros-melodic-mavros ros-melodic-mavros-extras -y
 wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
 chmod +x ./install_geographiclib_datasets.sh
 sudo ./install_geographiclib_datasets.sh
