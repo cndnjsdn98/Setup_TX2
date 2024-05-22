@@ -19,7 +19,7 @@ sudo apt-get install -y libgoogle-glog-dev \
                         protobuf-compiler \
                         ros-$ROS_DISTRO-octomap-msgs \
                         ros-$ROS_DISTRO-octomap-ros \
-                        ros-$ROS_DISTRO-joy
+                        ros-$ROS_DISTRO-joy \
                         ros-${ROS_DISTRO}-mavros-msgs
 ```
 1. Install required packages 
