@@ -20,13 +20,6 @@ sudo apt-get install -y libgoogle-glog-dev \
                         ros-$ROS_DISTRO-octomap-msgs \
                         ros-$ROS_DISTRO-octomap-ros \
                         ros-$ROS_DISTRO-joy
-```
-```
-sudo apt-get install -y libopencv-dev \
-                        ros-${ROS_DISTRO}-mavros \
-                        ros-${ROS_DISTRO}-mavros-extra \
-                        ros-${ROS_DISTRO}-mavros \
-                        ros-${ROS_DISTRO}-mavros-extras \
                         ros-${ROS_DISTRO}-mavros-msgs
 ```
 1. Install required packages 
