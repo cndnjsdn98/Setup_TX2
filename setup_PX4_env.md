@@ -15,19 +15,19 @@ rm ./install_geographiclib_datasets.sh
 1. Required dependencies
 ```
 sudo apt-get update
-sudo apt-get install libgoogle-glog-dev \
-                     protobuf-compiler \
-                     ros-$ROS_DISTRO-octomap-msgs \
-                     ros-$ROS_DISTRO-octomap-ros \
-                     ros-$ROS_DISTRO-joy
+sudo apt-get install -y libgoogle-glog-dev \
+                        protobuf-compiler \
+                        ros-$ROS_DISTRO-octomap-msgs \
+                        ros-$ROS_DISTRO-octomap-ros \
+                        ros-$ROS_DISTRO-joy
 ```
 ```
-sudo apt-get install libopencv-dev \
-                     ros-${ROS_DISTRO}-mavros \
-                     ros-${ROS_DISTRO}-mavros-extra \
-                     ros-${ROS_DISTRO}-mavros \
-                     ros-${ROS_DISTRO}-mavros-extras \
-                     ros-${ROS_DISTRO}-mavros-msgs
+sudo apt-get install -y libopencv-dev \
+                        ros-${ROS_DISTRO}-mavros \
+                        ros-${ROS_DISTRO}-mavros-extra \
+                        ros-${ROS_DISTRO}-mavros \
+                        ros-${ROS_DISTRO}-mavros-extras \
+                        ros-${ROS_DISTRO}-mavros-msgs
 ```
 1. Install required packages 
 2. Create Catkin Workspace.
