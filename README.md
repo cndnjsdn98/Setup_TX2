@@ -225,6 +225,7 @@ cd ~/tera_renderer
 cargo build --verbose --release
 ```
 If the above throws an error regarding incorrect version of `rust` then execute the following to update the rustc version. If there were no errors proceed to the next step:
+
 Uninstall the initial `rustc` installation and install `rustup`
 ```
 sudo apt autoremove rustc -y
@@ -232,7 +233,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 Add `~/.cargo/bin` to the `$PATH` by adding the following line to `.bashrc`
 ```
-export PATH=~/.cargo/bin:$PATH
+echo 'export PATH=~/.cargo/bin:$PATH' >> ~/.bashrc 
 ```
 Source `.bashrc` to source `cargo`
 ```
@@ -241,6 +242,10 @@ source ~/.bashrc
 Install the needed version of `rust`
 ```
 rustup default <required version of rust>
+```
+Build tera renderer
+```
+cargo build --verbose --release
 ```
 
 9. Copy the built `t_renderer` binary to `acados` directory
