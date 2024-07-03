@@ -4,7 +4,7 @@ Step by Step instructions for setting up a ROS and Catkin_ws environment on Jets
 ## Install required Packages
 Following instructions are for installing dependencies such as MAVROS and MAVLINK for communicating with the FCU.
 
-0. Required dependencies
+1. Required dependencies
 ```
 sudo apt-get install ros-melodic-mavros ros-melodic-mavros-extras -y
 wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
@@ -13,7 +13,7 @@ sudo ./install_geographiclib_datasets.sh
 rm ./install_geographiclib_datasets.sh
 ```
 
-1. Install required packages 
+2. Install required packages 
 ```
 sudo apt-get update
 sudo apt-get install -y libgoogle-glog-dev \
@@ -26,7 +26,25 @@ sudo apt-get install -y libgoogle-glog-dev \
                         ros-${ROS_DISTRO}-rqt-gui-py
 ```
 
-2. Create Catkin Workspace.
+3. First-Time Git Setup & Generating SSH Key
+Setting up your identity:
+```
+git config --global user.name "<Your Name>"
+git config --global user.email <your_email@example.com>
+```
+Generating a new SSH key
+```
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+Copy the SSH key to your clipboard.
+```
+cat ~/.ssh/id_ed25519.pub
+# Then select and copy the contents of the id_ed25519.pub file
+# displayed in the terminal to your clipboard
+```
+
+4. Create Catkin Workspace."
+
 ```
 cd ~
 mkdir -p ~/catkin_ws/src
