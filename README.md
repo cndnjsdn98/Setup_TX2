@@ -254,10 +254,12 @@ cp ~/tera_renderer/target/release/t_renderer ~/acados/bin/
 ```
 
 10. <del> Run a Python example to check that everything works: </del>
+<del>
 ```
-<del>cd ~/acados/examples/acados_python/getting_started
-<del>python ./minimal_example_ocp.py
-``` 
+cd ~/acados/examples/acados_python/getting_started
+python ./minimal_example_ocp.py
+```
+</del>
 <del> Note that this may return `ModuleNotFoundError: No module named '_casadi'` as we have yet to install `CasADi` properly yet. </del>
 
 As of July 2024 this has return `seg fault` errors. This error will be resolved once `CasADi` is installed properly as instructed in the next step.
