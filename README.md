@@ -217,11 +217,9 @@ echo 'export ACADOS_SOURCE_DIR="$HOME/acados"' >> ~/.bashrc
 ```
 sudo apt-get -y install cargo
 ```
-8. Clone `t_renderer` git and build tera renderer.
+8. Build tera renderer.
 ```
-cd ~/
-git clone https://github.com/acados/tera_renderer.git
-cd ~/tera_renderer
+cd ~/acados/interfaces/acados_template/tera_renderer
 cargo build --verbose --release
 ```
 If the above throws an error regarding incorrect version of `rust` then execute the following to update the rustc version. If there were no errors proceed to the next step:
@@ -250,19 +248,17 @@ cargo build --verbose --release
 
 9. Copy the built `t_renderer` binary to `acados` directory
 ```
-cp ~/tera_renderer/target/release/t_renderer ~/acados/bin/
+cp ~/acados/interfaces/acados_template/tera_renderer/target/release/t_renderer ~/acados/bin/
 ```
 
 10. <del> Run a Python example to check that everything works: </del>
-<del>
 ```
 cd ~/acados/examples/acados_python/getting_started
 python ./minimal_example_ocp.py
 ```
-</del>
 <del> Note that this may return `ModuleNotFoundError: No module named '_casadi'` as we have yet to install `CasADi` properly yet. </del>
 
-As of July 2024 this has return `seg fault` errors. This error will be resolved once `CasADi` is installed properly as instructed in the next step.
+**As of July 2024 this has return `seg fault` errors. This error will be resolved once `CasADi` is installed properly as instructed in the next step.**
 
 
 ## Install CasADi
