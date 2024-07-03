@@ -43,7 +43,7 @@ cat ~/.ssh/id_ed25519.pub
 # displayed in the terminal to your clipboard
 ```
 
-4. Create Catkin Workspace."
+4. Create Catkin Workspace.
 
 ```
 cd ~
