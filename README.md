@@ -258,7 +258,7 @@ python ./minimal_example_ocp.py
 ```
 <del> Note that this may return `ModuleNotFoundError: No module named '_casadi'` as we have yet to install `CasADi` properly yet. </del>
 
-**As of July 2024 this has return `seg fault` errors. This error will be resolved once `CasADi` is installed properly as instructed in the next step.**
+**As of July 2024 this has been returning the following error: `Segmentation fault (core dumped)`. This error will be resolved once `CasADi` is installed properly as instructed in the next step.**
 
 
 ## Install CasADi
