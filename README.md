@@ -174,6 +174,7 @@ Python 3.8.10
 ```
 sudo apt update
 sudo apt install -y python3-pip
+python3.8 -m pip install --upgrade pip
 ```
 2. Install matplotlib first as it always throws error when installing in virtual environment
 ```
@@ -182,10 +183,11 @@ sudo apt install python3-matplotlib
 
 3. Setup Python virtual environment for the packages. 
 ```
-sudo pip3 install virtualenv
+python3.8 -m pip install virtualenv
+
 cd <PATH_TO_VENV_DIRECTORY>
-virtualenv env --system-site-packages
-source <PATH_TO_VENV_DIRECTORY>/bin/activate
+virtualenv env --python=/usr/local/bin/python3.8
+source <PATH_TO_VENV_DIRECTORY>/env/bin/activate
 ```
 ## Install ROS
 To install Robot Operatin System (ROS) Melodic on our device we use [installROS](https://github.com/jetsonhacks/installROS).
