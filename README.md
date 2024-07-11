@@ -266,9 +266,12 @@ cargo build --verbose --release
 ```
 If the above throws an error regarding incorrect version of `rust` then execute the following to update the rustc version. If there were no errors proceed to the next step:
 
-Uninstall the initial `rustc` installation and install `rustup`
+Uninstall the initial `rustc` installation 
 ```
 sudo apt autoremove rustc -y
+```
+and install `rustup`
+```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 Add `~/.cargo/bin` to the `$PATH` by adding the following line to `.bashrc`
