@@ -128,7 +128,47 @@ sudo make install
 ```
 cmake --version
 ```
+## Install Python 3.8.10
+1. Update the packages list and install the packages necessary to build Python:
+```
+sudo apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+```
 
+2. Download the desired version of the source code from the Python download page. Here I will be installing Python 3.8.10:
+```
+wget https://www.python.org/ftp/python/3.8.10/Python-3.8.10.tgz
+```
+
+3. Extract the gzipped archive:
+```
+tar -xzf Python-3.8.10.tgz
+```
+
+4. Switch to the Python source directory and execute the `configure` script to checks that all of the dependencies are met:
+```
+cd Python-3.8.10
+./configure --enable-optimizations
+```
+
+5. Start build process:
+```
+make -j 8
+```
+
+6. Install the Python binaries. Do not use `make install` as it will overwrite the default system python3 binary and could cause issues with your system.
+```
+sudo make altinstall
+```
+
+7. Verify that Python 3.8 has been installed correctly by typing:
+```
+python3.8 --version
+```
+The output should show the correct Python Version:
+```
+Python 3.8.10
+```
+   
 ## Setup Python Virtual Environment
 1. Install pip for Python3
 ```
