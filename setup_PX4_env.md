@@ -58,5 +58,9 @@ git clone git@github.com:uzh-rpg/agilicious_internal.git
 cd ~/catkin_ws
 catkin build
 ```
+## Speed up Jetson
+run following commands 30seconds after boot to optimize Jetson performance.
 ```
-
+nvpmodel -m 0
+sudo jetson_clocks
+```
