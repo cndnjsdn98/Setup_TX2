@@ -61,6 +61,6 @@ catkin build
 ## Speed up Jetson
 run following commands 30seconds after boot to optimize Jetson performance.
 ```
-nvpmodel -m 0
+sudo nvpmodel -m 0
 sudo jetson_clocks
 ```
