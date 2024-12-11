@@ -228,7 +228,7 @@ git submodule update --recursive --init
 mkdir -p build
 cd build
 cmake -DACADOS_WITH_QPOASES=ON -DACADOS_WITH_OSQP=ON -DACADOS_WITH_QPDUNES=ON -DACADOS_WITH_DAQP=ON ..
-# add more optional arguments e.g. -DACADOS_WITH_OSQP=OFF/ON -DACADOS_INSTALL_DIR=<path_to_acados_installation_folder> above
+# add more optional arguments e.g. -DACADOS_SILENT=ON -DACADOS_WITH_OSQP=OFF/ON -DACADOS_INSTALL_DIR=<path_to_acados_installation_folder> above
 make install -j4
 ```
 4. Install Python Interface
